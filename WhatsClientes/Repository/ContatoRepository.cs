@@ -13,10 +13,11 @@ public class ContatoRepository : IContatoRepository
         _whatsContext = whatsContext;
     }
 
-    public async Task<IEnumerable<Contato>> ListarContatos()
+    public async Task<IEnumerable<Contato>> ListarContatos(string pesquisa)
     {
         return await _whatsContext.Contatos
-            .OrderBy(o => o.Nome.ToLower())
+            .Where(w => w.Nome.ToUpper().Contains(pesquisa.ToUpper()))
+            .OrderBy(o => o.Nome.ToUpper())
             .ToListAsync();
     }
 
@@ -56,15 +57,20 @@ public class ContatoRepository : IContatoRepository
 
     public async Task Alterar(Contato contato)
     {
+        Contato contato1 = new();
         try
         {
+            contato1 = await ListarContatoId(contato.Id);
             if (contato is null)
             {
                 throw new Exception("Contato vazio");
             }
 
-            _whatsContext.Contatos.Entry(contato).State = EntityState.Modified;
-            await _whatsContext.SaveChangesAsync();
+            if (contato1 is not null)
+            {
+                _whatsContext.Contatos.Entry(contato1).CurrentValues.SetValues(contato);
+                await _whatsContext.SaveChangesAsync();
+            }
         }
         catch (Exception)
         {
