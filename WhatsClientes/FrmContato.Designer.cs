@@ -147,6 +147,9 @@
             // BtnExcluir
             // 
             BtnExcluir.Enabled = false;
+            BtnExcluir.FlatAppearance.MouseDownBackColor = Color.DimGray;
+            BtnExcluir.FlatAppearance.MouseOverBackColor = Color.Red;
+            BtnExcluir.FlatStyle = FlatStyle.Flat;
             BtnExcluir.Location = new Point(230, 75);
             BtnExcluir.Name = "BtnExcluir";
             BtnExcluir.Size = new Size(75, 23);
@@ -158,6 +161,9 @@
             // BtnAtualizar
             // 
             BtnAtualizar.Enabled = false;
+            BtnAtualizar.FlatAppearance.MouseDownBackColor = Color.DimGray;
+            BtnAtualizar.FlatAppearance.MouseOverBackColor = Color.Silver;
+            BtnAtualizar.FlatStyle = FlatStyle.Flat;
             BtnAtualizar.Location = new Point(149, 75);
             BtnAtualizar.Name = "BtnAtualizar";
             BtnAtualizar.Size = new Size(75, 23);
@@ -168,6 +174,9 @@
             // 
             // BtnAdicionar
             // 
+            BtnAdicionar.FlatAppearance.MouseDownBackColor = Color.DimGray;
+            BtnAdicionar.FlatAppearance.MouseOverBackColor = Color.Silver;
+            BtnAdicionar.FlatStyle = FlatStyle.Flat;
             BtnAdicionar.Location = new Point(68, 75);
             BtnAdicionar.Name = "BtnAdicionar";
             BtnAdicionar.Size = new Size(75, 23);

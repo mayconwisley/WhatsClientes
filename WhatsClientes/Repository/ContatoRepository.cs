@@ -57,10 +57,9 @@ public class ContatoRepository : IContatoRepository
 
     public async Task Alterar(Contato contato)
     {
-        Contato contato1 = new();
         try
         {
-            contato1 = await ListarContatoId(contato.Id);
+            Contato contato1 = await ListarContatoId(contato.Id);
             if (contato is null)
             {
                 throw new Exception("Contato vazio");

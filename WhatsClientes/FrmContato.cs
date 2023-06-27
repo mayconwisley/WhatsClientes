@@ -180,15 +180,15 @@ namespace WhatsClientes
 
         private void MktTelefone_Leave(object sender, EventArgs e)
         {
-            string telefone = MktTelefone.Text.Trim();
+            string telefone = MktTelefone.Text.Trim().Replace("-", "").Replace("(", "").Replace(")", "").Replace(" ", "");
 
-            if (telefone.Length > 15)
+            if (telefone.Length == 10)
             {
-                MktTelefone.Mask = "(99) 9 0000-0000";
+                MktTelefone.Mask = "(99) 0000-0000";
             }
             else
             {
-                MktTelefone.Mask = "(99) 0000-0000";
+                MktTelefone.Mask = "(99) 9 0000-0000";
             }
         }
     }
