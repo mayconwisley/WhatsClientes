@@ -145,31 +145,11 @@ namespace WhatsClientes
 
                 string apiTel = $"https://api.whatsapp.com/send?phone={ddi}{tel}";
 
-                // Verificar o sistema operacional atual
-                if (OperatingSystem.IsWindows())
+                Process.Start(new ProcessStartInfo
                 {
-                    // Abrir a página da web no navegador padrão do Windows
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = apiTel,
-                        UseShellExecute = true
-                    });
-                }
-                else if (OperatingSystem.IsMacOS())
-                {
-                    // Abrir a página da web no navegador padrão do macOS
-                    Process.Start("open", apiTel);
-                }
-                else if (OperatingSystem.IsLinux())
-                {
-                    // Abrir a página da web no navegador padrão do Linux
-                    Process.Start("xdg-open", apiTel);
-                }
-                else
-                {
-                    // Sistema operacional não suportado
-                    MessageBox.Show("Sistema operacional não suportado.");
-                }
+                    FileName = apiTel,
+                    UseShellExecute = true
+                });
             }
         }
 
@@ -189,6 +169,33 @@ namespace WhatsClientes
             else
             {
                 MktTelefone.Mask = "(99) 9 0000-0000";
+            }
+        }
+
+        private void LkLblProjetoGit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://github.com/mayconwisley/WhatsClientes",
+                UseShellExecute = true
+            });
+        }
+
+        private void BtnIrWhats_Click(object sender, EventArgs e)
+        {
+            string? tel = MktTelefone.Text;
+            string? ddi = TxtDDI.Text.Trim();
+
+            if (tel is not null)
+            {
+                tel = tel.Replace("-", "").Replace("(", "").Replace(")", "").Replace(" ", "");
+                string apiTel = $"https://api.whatsapp.com/send?phone={ddi}{tel}";
+
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = apiTel,
+                    UseShellExecute = true
+                });
             }
         }
     }
