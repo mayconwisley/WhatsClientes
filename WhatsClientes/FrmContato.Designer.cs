@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             groupBox2 = new GroupBox();
             DgvListarContato = new DataGridView();
             ContatoId = new DataGridViewTextBoxColumn();
@@ -47,6 +49,7 @@
             groupBox3 = new GroupBox();
             TxtPesquisa = new TextBox();
             LblInfo = new Label();
+            label3 = new Label();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DgvListarContato).BeginInit();
             groupBox1.SuspendLayout();
@@ -56,7 +59,8 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(DgvListarContato);
-            groupBox2.Location = new Point(12, 199);
+            groupBox2.FlatStyle = FlatStyle.Flat;
+            groupBox2.Location = new Point(12, 195);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(379, 226);
             groupBox2.TabIndex = 2;
@@ -75,6 +79,7 @@
             DgvListarContato.Columns.AddRange(new DataGridViewColumn[] { ContatoId, ContatoNome, ContatoDDI, ContatoTelefone });
             DgvListarContato.Dock = DockStyle.Fill;
             DgvListarContato.Location = new Point(3, 19);
+            DgvListarContato.MultiSelect = false;
             DgvListarContato.Name = "DgvListarContato";
             DgvListarContato.ReadOnly = true;
             DgvListarContato.RowTemplate.Height = 25;
@@ -104,6 +109,8 @@
             // ContatoDDI
             // 
             ContatoDDI.DataPropertyName = "DDI";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
+            ContatoDDI.DefaultCellStyle = dataGridViewCellStyle3;
             ContatoDDI.HeaderText = "DDI";
             ContatoDDI.Name = "ContatoDDI";
             ContatoDDI.ReadOnly = true;
@@ -111,10 +118,16 @@
             // 
             // ContatoTelefone
             // 
+            ContatoTelefone.ActiveLinkColor = Color.Blue;
             ContatoTelefone.DataPropertyName = "Telefone";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleRight;
+            ContatoTelefone.DefaultCellStyle = dataGridViewCellStyle4;
             ContatoTelefone.HeaderText = "Telefone";
+            ContatoTelefone.LinkBehavior = LinkBehavior.NeverUnderline;
+            ContatoTelefone.LinkColor = Color.Blue;
             ContatoTelefone.Name = "ContatoTelefone";
             ContatoTelefone.ReadOnly = true;
+            ContatoTelefone.VisitedLinkColor = Color.Blue;
             ContatoTelefone.Width = 57;
             // 
             // groupBox1
@@ -128,16 +141,17 @@
             groupBox1.Controls.Add(TxtNome);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.Location = new Point(12, 8);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(372, 117);
+            groupBox1.Size = new Size(379, 117);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Adicionar Contato";
             // 
             // TxtDDI
             // 
-            TxtDDI.Location = new Point(220, 37);
+            TxtDDI.Location = new Point(223, 37);
             TxtDDI.MaxLength = 4;
             TxtDDI.Name = "TxtDDI";
             TxtDDI.Size = new Size(40, 23);
@@ -150,7 +164,7 @@
             BtnExcluir.FlatAppearance.MouseDownBackColor = Color.DimGray;
             BtnExcluir.FlatAppearance.MouseOverBackColor = Color.Red;
             BtnExcluir.FlatStyle = FlatStyle.Flat;
-            BtnExcluir.Location = new Point(230, 75);
+            BtnExcluir.Location = new Point(233, 75);
             BtnExcluir.Name = "BtnExcluir";
             BtnExcluir.Size = new Size(75, 23);
             BtnExcluir.TabIndex = 5;
@@ -164,7 +178,7 @@
             BtnAtualizar.FlatAppearance.MouseDownBackColor = Color.DimGray;
             BtnAtualizar.FlatAppearance.MouseOverBackColor = Color.Silver;
             BtnAtualizar.FlatStyle = FlatStyle.Flat;
-            BtnAtualizar.Location = new Point(149, 75);
+            BtnAtualizar.Location = new Point(152, 75);
             BtnAtualizar.Name = "BtnAtualizar";
             BtnAtualizar.Size = new Size(75, 23);
             BtnAtualizar.TabIndex = 4;
@@ -177,7 +191,7 @@
             BtnAdicionar.FlatAppearance.MouseDownBackColor = Color.DimGray;
             BtnAdicionar.FlatAppearance.MouseOverBackColor = Color.Silver;
             BtnAdicionar.FlatStyle = FlatStyle.Flat;
-            BtnAdicionar.Location = new Point(68, 75);
+            BtnAdicionar.Location = new Point(71, 75);
             BtnAdicionar.Name = "BtnAdicionar";
             BtnAdicionar.Size = new Size(75, 23);
             BtnAdicionar.TabIndex = 3;
@@ -187,7 +201,7 @@
             // 
             // MktTelefone
             // 
-            MktTelefone.Location = new Point(266, 37);
+            MktTelefone.Location = new Point(269, 37);
             MktTelefone.Mask = "(99) 9 0000-0000";
             MktTelefone.Name = "MktTelefone";
             MktTelefone.Size = new Size(100, 23);
@@ -197,7 +211,7 @@
             // Telefone
             // 
             Telefone.AutoSize = true;
-            Telefone.Location = new Point(266, 19);
+            Telefone.Location = new Point(269, 19);
             Telefone.Name = "Telefone";
             Telefone.Size = new Size(51, 15);
             Telefone.TabIndex = 2;
@@ -205,7 +219,7 @@
             // 
             // TxtNome
             // 
-            TxtNome.Location = new Point(6, 37);
+            TxtNome.Location = new Point(9, 37);
             TxtNome.Name = "TxtNome";
             TxtNome.Size = new Size(208, 23);
             TxtNome.TabIndex = 0;
@@ -213,7 +227,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(220, 19);
+            label2.Location = new Point(223, 19);
             label2.Name = "label2";
             label2.Size = new Size(26, 15);
             label2.TabIndex = 0;
@@ -222,7 +236,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 19);
+            label1.Location = new Point(9, 19);
             label1.Name = "label1";
             label1.Size = new Size(40, 15);
             label1.TabIndex = 0;
@@ -231,16 +245,17 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(TxtPesquisa);
-            groupBox3.Location = new Point(12, 135);
+            groupBox3.FlatStyle = FlatStyle.Flat;
+            groupBox3.Location = new Point(12, 131);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(372, 58);
+            groupBox3.Size = new Size(379, 58);
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Pesquisa";
             // 
             // TxtPesquisa
             // 
-            TxtPesquisa.Location = new Point(6, 18);
+            TxtPesquisa.Location = new Point(9, 18);
             TxtPesquisa.Name = "TxtPesquisa";
             TxtPesquisa.Size = new Size(360, 23);
             TxtPesquisa.TabIndex = 0;
@@ -249,17 +264,28 @@
             // LblInfo
             // 
             LblInfo.AutoSize = true;
-            LblInfo.Location = new Point(18, 428);
+            LblInfo.Location = new Point(18, 424);
             LblInfo.Name = "LblInfo";
             LblInfo.Size = new Size(79, 15);
             LblInfo.TabIndex = 3;
             LblInfo.Text = "Contatos: 000";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(18, 463);
+            label3.Name = "label3";
+            label3.Size = new Size(309, 30);
+            label3.TabIndex = 4;
+            label3.Text = "Dois cliques sobre o item para excluir ou alterar\r\nUm clique sobre o telefone para acessar o Whatsapp Web";
+            // 
             // FrmContato
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(402, 464);
+            BackColor = Color.FromArgb(192, 192, 255);
+            ClientSize = new Size(402, 501);
+            Controls.Add(label3);
             Controls.Add(LblInfo);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -296,10 +322,11 @@
         private Button BtnAtualizar;
         private TextBox TxtDDI;
         private Label label2;
+        private Label LblInfo;
+        private Label label3;
         private DataGridViewTextBoxColumn ContatoId;
         private DataGridViewTextBoxColumn ContatoNome;
         private DataGridViewTextBoxColumn ContatoDDI;
         private DataGridViewLinkColumn ContatoTelefone;
-        private Label LblInfo;
     }
 }
