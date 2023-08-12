@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContato));
             groupBox2 = new GroupBox();
             DgvListarContato = new DataGridView();
             ContatoId = new DataGridViewTextBoxColumn();
@@ -38,6 +39,7 @@
             ContatoTelefone = new DataGridViewLinkColumn();
             groupBox1 = new GroupBox();
             TxtDDI = new TextBox();
+            BtnIrWhats = new Button();
             BtnExcluir = new Button();
             BtnAtualizar = new Button();
             BtnAdicionar = new Button();
@@ -50,6 +52,7 @@
             TxtPesquisa = new TextBox();
             LblInfo = new Label();
             label3 = new Label();
+            LkLblProjetoGit = new LinkLabel();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DgvListarContato).BeginInit();
             groupBox1.SuspendLayout();
@@ -109,8 +112,8 @@
             // ContatoDDI
             // 
             ContatoDDI.DataPropertyName = "DDI";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
-            ContatoDDI.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
+            ContatoDDI.DefaultCellStyle = dataGridViewCellStyle1;
             ContatoDDI.HeaderText = "DDI";
             ContatoDDI.Name = "ContatoDDI";
             ContatoDDI.ReadOnly = true;
@@ -120,8 +123,8 @@
             // 
             ContatoTelefone.ActiveLinkColor = Color.Blue;
             ContatoTelefone.DataPropertyName = "Telefone";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleRight;
-            ContatoTelefone.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            ContatoTelefone.DefaultCellStyle = dataGridViewCellStyle2;
             ContatoTelefone.HeaderText = "Telefone";
             ContatoTelefone.LinkBehavior = LinkBehavior.NeverUnderline;
             ContatoTelefone.LinkColor = Color.Blue;
@@ -133,6 +136,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(TxtDDI);
+            groupBox1.Controls.Add(BtnIrWhats);
             groupBox1.Controls.Add(BtnExcluir);
             groupBox1.Controls.Add(BtnAtualizar);
             groupBox1.Controls.Add(BtnAdicionar);
@@ -142,7 +146,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.FlatStyle = FlatStyle.Flat;
-            groupBox1.Location = new Point(12, 8);
+            groupBox1.Location = new Point(15, 8);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(379, 117);
             groupBox1.TabIndex = 0;
@@ -158,13 +162,26 @@
             TxtDDI.TabIndex = 1;
             TxtDDI.Text = "55";
             // 
+            // BtnIrWhats
+            // 
+            BtnIrWhats.FlatAppearance.MouseDownBackColor = Color.DimGray;
+            BtnIrWhats.FlatAppearance.MouseOverBackColor = Color.Green;
+            BtnIrWhats.FlatStyle = FlatStyle.Flat;
+            BtnIrWhats.Location = new Point(253, 75);
+            BtnIrWhats.Name = "BtnIrWhats";
+            BtnIrWhats.Size = new Size(113, 23);
+            BtnIrWhats.TabIndex = 6;
+            BtnIrWhats.Text = "Ir &Whatsapp Web";
+            BtnIrWhats.UseVisualStyleBackColor = true;
+            BtnIrWhats.Click += BtnIrWhats_Click;
+            // 
             // BtnExcluir
             // 
             BtnExcluir.Enabled = false;
             BtnExcluir.FlatAppearance.MouseDownBackColor = Color.DimGray;
             BtnExcluir.FlatAppearance.MouseOverBackColor = Color.Red;
             BtnExcluir.FlatStyle = FlatStyle.Flat;
-            BtnExcluir.Location = new Point(233, 75);
+            BtnExcluir.Location = new Point(172, 75);
             BtnExcluir.Name = "BtnExcluir";
             BtnExcluir.Size = new Size(75, 23);
             BtnExcluir.TabIndex = 5;
@@ -178,7 +195,7 @@
             BtnAtualizar.FlatAppearance.MouseDownBackColor = Color.DimGray;
             BtnAtualizar.FlatAppearance.MouseOverBackColor = Color.Silver;
             BtnAtualizar.FlatStyle = FlatStyle.Flat;
-            BtnAtualizar.Location = new Point(152, 75);
+            BtnAtualizar.Location = new Point(91, 75);
             BtnAtualizar.Name = "BtnAtualizar";
             BtnAtualizar.Size = new Size(75, 23);
             BtnAtualizar.TabIndex = 4;
@@ -191,7 +208,7 @@
             BtnAdicionar.FlatAppearance.MouseDownBackColor = Color.DimGray;
             BtnAdicionar.FlatAppearance.MouseOverBackColor = Color.Silver;
             BtnAdicionar.FlatStyle = FlatStyle.Flat;
-            BtnAdicionar.Location = new Point(71, 75);
+            BtnAdicionar.Location = new Point(10, 75);
             BtnAdicionar.Name = "BtnAdicionar";
             BtnAdicionar.Size = new Size(75, 23);
             BtnAdicionar.TabIndex = 3;
@@ -279,18 +296,31 @@
             label3.TabIndex = 4;
             label3.Text = "Dois cliques sobre o item para excluir ou alterar\r\nUm clique sobre o telefone para acessar o Whatsapp Web";
             // 
+            // LkLblProjetoGit
+            // 
+            LkLblProjetoGit.AutoSize = true;
+            LkLblProjetoGit.Location = new Point(18, 500);
+            LkLblProjetoGit.Name = "LkLblProjetoGit";
+            LkLblProjetoGit.Size = new Size(92, 15);
+            LkLblProjetoGit.TabIndex = 5;
+            LkLblProjetoGit.TabStop = true;
+            LkLblProjetoGit.Text = "Projeto - Github";
+            LkLblProjetoGit.LinkClicked += LkLblProjetoGit_LinkClicked;
+            // 
             // FrmContato
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
-            ClientSize = new Size(402, 501);
+            ClientSize = new Size(402, 524);
+            Controls.Add(LkLblProjetoGit);
             Controls.Add(label3);
             Controls.Add(LblInfo);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FrmContato";
             StartPosition = FormStartPosition.CenterScreen;
@@ -328,5 +358,7 @@
         private DataGridViewTextBoxColumn ContatoNome;
         private DataGridViewTextBoxColumn ContatoDDI;
         private DataGridViewLinkColumn ContatoTelefone;
+        private LinkLabel LkLblProjetoGit;
+        private Button BtnIrWhats;
     }
 }
