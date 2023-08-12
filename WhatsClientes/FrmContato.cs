@@ -53,74 +53,31 @@ public partial class FrmContato : Form
         }
         catch (Exception ex)
         {
-<<<<<<< HEAD
-            Contato contato = new();
-
-            try
-            {
-                contato.DDI = TxtDDI.Text.Trim();
-                contato.Nome = TxtNome.Text.Trim();
-                contato.Telefone = MktTelefone.Text.Trim();
-
-                await _contatoRepository.Inserir(contato);
-                LimparCampos();
-                ListarContatos(TxtPesquisa.Text.Trim());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-=======
-            MessageBox.Show(ex.Message);
->>>>>>> 8545bed98d79c518d6e6ef48cbc1ce80143760dd
+            MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+
     }
 
     private async void BtnExcluir_Click(object sender, EventArgs e)
     {
+
         try
         {
-<<<<<<< HEAD
-            try
-            {
-                await _contatoRepository.Excluir(id);
-                LimparCampos();
-                ListarContatos(TxtPesquisa.Text.Trim());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-=======
             await _contatoRepository.Excluir(id);
             LimparCampos();
             ListarContatos(TxtPesquisa.Text.Trim());
->>>>>>> 8545bed98d79c518d6e6ef48cbc1ce80143760dd
         }
         catch (Exception ex)
         {
-<<<<<<< HEAD
-            Contato contato = new();
-
-            try
-            {
-                contato.Id = id;
-                contato.DDI = TxtDDI.Text.Trim();
-                contato.Nome = TxtNome.Text.Trim();
-                contato.Telefone = MktTelefone.Text.Trim();
-
-                await _contatoRepository.Alterar(contato);
-                LimparCampos();
-                ListarContatos(TxtPesquisa.Text.Trim());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-=======
-            MessageBox.Show(ex.Message);
->>>>>>> 8545bed98d79c518d6e6ef48cbc1ce80143760dd
+            MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        await _contatoRepository.Excluir(id);
+        LimparCampos();
+        ListarContatos(TxtPesquisa.Text.Trim());
+
+
     }
 
     private async void BtnAtualizar_Click(object sender, EventArgs e)
@@ -133,44 +90,14 @@ public partial class FrmContato : Form
             contato.DDI = TxtDDI.Text.Trim();
             contato.Nome = TxtNome.Text.Trim();
             contato.Telefone = MktTelefone.Text.Trim();
-
-<<<<<<< HEAD
-                TxtDDI.Text = DgvListarContato.Rows[e.RowIndex].Cells["ContatoDDI"].Value.ToString();
-                TxtNome.Text = DgvListarContato.Rows[e.RowIndex].Cells["ContatoNome"].Value.ToString();
-
-                var telefone = DgvListarContato.Rows[e.RowIndex].Cells["ContatoTelefone"].Value.ToString();
-
-                if (telefone is not null)
-                {
-                    if (telefone.Length == 14)
-                    {
-                        MktTelefone.Mask = "(99) 0000-0000";
-                    }
-                    else
-                    {
-                        MktTelefone.Mask = "(99) 9 0000-0000";
-                    }
-
-                    MktTelefone.Text = telefone;
-                }
-
-                BtnAdicionar.Enabled = false;
-                BtnAtualizar.Enabled = true;
-                BtnExcluir.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-=======
             await _contatoRepository.Alterar(contato);
             LimparCampos();
             ListarContatos(TxtPesquisa.Text.Trim());
->>>>>>> 8545bed98d79c518d6e6ef48cbc1ce80143760dd
+
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message);
+            MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 
@@ -197,12 +124,12 @@ public partial class FrmContato : Form
                 }
                 else
                 {
-<<<<<<< HEAD
+
                     // Sistema operacional não suportado
                     MessageBox.Show("Sistema operacional não suportado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-=======
+
                     MktTelefone.Mask = "(99) 9 0000-0000";
->>>>>>> 8545bed98d79c518d6e6ef48cbc1ce80143760dd
+
                 }
 
                 MktTelefone.Text = telefone;
