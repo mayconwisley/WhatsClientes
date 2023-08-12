@@ -36,7 +36,7 @@ namespace WhatsClientes.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contatos");
+                    b.ToTable("Contatos", (string)null);
                 });
 #pragma warning restore 612, 618
         }

@@ -53,7 +53,7 @@ namespace WhatsClientes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -67,7 +67,7 @@ namespace WhatsClientes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -88,7 +88,7 @@ namespace WhatsClientes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -127,7 +127,7 @@ namespace WhatsClientes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -168,7 +168,7 @@ namespace WhatsClientes
                 else
                 {
                     // Sistema operacional não suportado
-                    MessageBox.Show("Sistema operacional não suportado.");
+                    MessageBox.Show("Sistema operacional não suportado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

@@ -41,10 +41,7 @@ public class ContatoRepository : IContatoRepository
     {
         try
         {
-            if (contato is null)
-            {
-                throw new Exception("Contato vazio");
-            }
+            ValidacaoContato(contato);
 
             _whatsContext.Contatos.Add(contato);
             await _whatsContext.SaveChangesAsync();
@@ -60,10 +57,7 @@ public class ContatoRepository : IContatoRepository
         try
         {
             Contato contato1 = await ListarContatoId(contato.Id);
-            if (contato is null)
-            {
-                throw new Exception("Contato vazio");
-            }
+            ValidacaoContato(contato1);
 
             if (contato1 is not null)
             {
@@ -75,6 +69,27 @@ public class ContatoRepository : IContatoRepository
         {
             throw;
         }
+    }
+
+    private static void ValidacaoContato(Contato contato)
+    {
+        if (contato is null)
+        {
+            throw new Exception("Contato vazio");
+        }
+        if (contato.Nome.Length <= 0)
+        {
+            throw new Exception("Nome vazio");
+        }
+        if (contato.Telefone == "(  )     -" || contato.Telefone == "(  )       -")
+        {
+            throw new Exception("Numero de Telefone Vazio");
+        }
+        if (contato.DDI == string.Empty)
+        {
+            throw new Exception("DDI Vazio");
+        }
+
     }
 
     public async Task Excluir(int id)

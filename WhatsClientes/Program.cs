@@ -20,7 +20,7 @@ namespace WhatsClientes
             service.AddScoped<IContatoRepository, ContatoRepository>();
             var serviceSco = service.BuildServiceProvider();
             var Sco = serviceSco.GetService<IContatoRepository>();
-            
+
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmContato(Sco));
         }
